@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+		<link rel="stylesheet" type="text/css" href="..\css\homepage.css"> </link>
+	</head>
+<body>
+	<% include ../partials/header %>
+
+	<div id="main-content"> 
+		<h1 id="page-title"> HOME </h1>
+
+		<div id="article-container">
+			<% articlePreviews.forEach(function(article) { %>
+				<div class="article">
+					<a class="home-window" href="/article/<%= article.seoUrl %>" style="background-image: url(<%= article.thumbnailUrl %>);">  </a>
+					<div class="home-title-container">
+						<h1 class="home-window-title"> 
+							<%= article.title %>
+						</h1>
+					</div>
+				</div>
+			<% }); %>
+
+		</div>
+
+	</div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/footer-height.js"></script>
+
+	<% include ../partials/footer %>
+</body>
+
+</html>

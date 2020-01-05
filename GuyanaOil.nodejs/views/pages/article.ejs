@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+		<link rel="stylesheet" type="text/css" href="..\css\articleGeneral.css"> </link>
+		<link rel="stylesheet" type="text/css" href="..\css\article.css"> </link>
+	</head>
+<body>
+	<% include ../partials/header %>
+
+	<div id="main-content"> 
+		<h1 id="page-title"> <%= article[0].title %> </h1>
+
+		<article id="article"> 
+
+			<div id="thumbnail-container">
+				<img id="thumbnail", src="<%= article[0].thumbnailUrl %>", alt="Thumbnail Image"> </img>
+			</div>
+			<div id="thumbnail-caption-container">
+				<small id="thumbnail-caption"> </small>
+			</div>
+
+			<%- article[0].body %>
+		</article>
+
+	</div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/footer-height.js"></script>
+
+	<% include ../partials/footer %>
+</body>
+
+</html>

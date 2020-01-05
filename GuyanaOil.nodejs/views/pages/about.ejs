@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include ../partials/head %>
+		<link rel="stylesheet" type="text/css" href="..\css\articleGeneral.css"> </link>
+		<link rel="stylesheet" type="text/css" href="..\css\about.css"> </link>
+	</head>
+<body>
+	<% include ../partials/header %>
+
+	<div id="main-content"> 
+		<h1 id="page-title"> ABOUT </h1>
+		
+		<article id="article"> 
+			<% genders.forEach(function(gender) { %>
+				<%= gender.sex %>
+			<%})%>
+		</article>
+	</div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/footer-height.js"></script>
+
+	<% include ../partials/footer %>
+</body>
+
+</html>

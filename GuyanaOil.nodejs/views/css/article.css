@@ -1,0 +1,8 @@
+#thumbnail {
+    width: 80%;
+    margin: auto;
+}
+
+#thumbnail-container {
+    background-color: rgba(0, 0, 0, .2);
+}

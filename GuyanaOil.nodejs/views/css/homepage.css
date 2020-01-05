@@ -1,0 +1,65 @@
+.home-window {
+	display: block;
+	border-radius: 25px;
+	opacity: 0.8;
+	box-shadow: inset 0px 0px 40px #000000;
+	border: 10px solid #000000;
+	transition: box-shadow .5s;
+	background-size: cover;
+}
+
+.home-window:hover {
+	box-shadow: inset 0px 0px 40px #FFFFFF;
+}
+
+@media only screen and (min-width: 1000px) {
+  .home-window {
+	height: 300px;
+	width: 400px;
+    margin: 50px 50px 25px 50px;
+	overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  .home-window {
+	height: 30vw;
+	width: 40vw;
+    margin: 4vw 4vw 2vw 4vw;
+  }
+}
+
+.home-window-title {
+	margin: 0px;
+	font-size: x-large;
+}
+
+.home-title-container {
+	margin: auto;
+	border-left: 5px solid black;
+	border-right: 5px solid black;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 5px
+}
+
+@media only screen and (min-width: 1000px) {
+	.home-title-container {
+		width: 400px;
+	}
+}
+
+@media only screen and (max-width: 999px) {
+	.home-title-container {
+		width: 40vw;
+	}
+}
+
+.article {
+	vertical-align: top;
+	display: inline-block;
+}
+
+#article-container {
+	margin: auto;
+	text-align: center;
+}
