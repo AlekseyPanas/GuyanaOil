@@ -1,7 +1,7 @@
 const db = require('./db')
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 80
 
 // Adds the directory with all the stuff to be used
 app.use(express.static(__dirname + '/views'));
@@ -24,7 +24,7 @@ async function renderHomePage(req, res) {
 
 // about page
 app.get('/pages/about', (req, res) => {
-    arr = new Array(10000).fill(1).map(function() {return {sex : ["Homosexual", "Heterosexual", "Bisexual"][Math.floor((Math.random() * 3))]}});
+    arr = new Array(10000).fill(1).map(function() {return {sex : ["Homosexual", "Heterosexual", "Bisexual", "Asexual"][Math.floor((Math.random() * 3))]}});
 
     res.render('pages/about', {genders: arr});
    });
