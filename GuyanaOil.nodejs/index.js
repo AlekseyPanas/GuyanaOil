@@ -1,10 +1,12 @@
 const db = require('./db')
 const express = require('express')
+const bodyParser = require('body-parser');
 const app = express()
 const port = 80
 
 // Adds the directory with all the stuff to be used
 app.use(express.static(__dirname + '/views'));
+app.use(bodyParser.urlencoded({ extended: true }));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -24,10 +26,10 @@ async function renderHomePage(req, res) {
 
 // about page
 app.get('/pages/about', (req, res) => {
-    arr = new Array(10000).fill(1).map(function() {return {sex : ["Homosexual", "Heterosexual", "Bisexual", "Asexual"][Math.floor((Math.random() * 3))]}});
+    arr = new Array(10000).fill(1).map(function () { return { sex: ["Homosexual", "Heterosexual", "Bisexual", "Asexual"][Math.floor((Math.random() * 4))] } });
 
-    res.render('pages/about', {genders: arr});
-   });
+    res.render('pages/about', { genders: arr });
+});
 
 
 // article page handler
@@ -35,7 +37,7 @@ app.get('/article/:articleUrl', async (req, res) => {
     const theUrl = req.params.articleUrl;
     const article = await db.getArticle(theUrl)
     const date = article[0].date.toString().split(" ").slice(1, 4).join(" ")
-    
+
     res.render('pages/article', {
         article: article,
         date: date
@@ -43,9 +45,45 @@ app.get('/article/:articleUrl', async (req, res) => {
 });
 
 
-app.get('/pages/articleEditor', (req, res) => {
-    res.render('pages/articleEditor')
+app.all('/pages/articleEditor', (req, res) => {
+    let errorMessage = null;
+    let content = null;
+    let title = null;
+
+    if (req.method.toLowerCase() == 'post') {
+        title = req.body["title"];
+        content = req.body["content"];
+
+        if(!title || !content) {
+            errorMessage = "Title and content fields are required!";
+        } else {
+            try {
+                db.saveArticle(title, content);
+            } catch(e) {
+                errorMessage = e;
+            }
+        }
+    }
+
+    res.render('pages/articleEditor', {
+        errorMessage: errorMessage,
+        title: title || "",
+        content: content || ""
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // DEBUG SHIT
