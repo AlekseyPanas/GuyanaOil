@@ -22,6 +22,14 @@ async function renderHomePage(req, res) {
 }
 
 
+// about page
+app.get('/pages/about', (req, res) => {
+    arr = new Array(10000).fill(1).map(function() {return {sex : ["Homosexual", "Heterosexual", "Bisexual"][Math.floor((Math.random() * 3))]}});
+
+    res.render('pages/about', {genders: arr});
+   });
+
+
 // article page handler
 app.get('/article/:articleUrl', async (req, res) => {
     const theUrl = req.params.articleUrl;
@@ -35,12 +43,9 @@ app.get('/article/:articleUrl', async (req, res) => {
 });
 
 
-// about page
-app.get('/pages/about', (req, res) => {
-    arr = new Array(10000).fill(1).map(function() {return {sex : ["Homosexual", "Heterosexual", "Bisexual"][Math.floor((Math.random() * 3))]}});
-
-    res.render('pages/about', {genders: arr});
-   });
+app.get('/pages/articleEditor', (req, res) => {
+    res.render('pages/articleEditor')
+});
 
 
 // DEBUG SHIT

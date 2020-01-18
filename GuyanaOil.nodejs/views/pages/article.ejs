@@ -12,12 +12,17 @@
 		<h1 id="page-title"> <%= article[0].title %> </h1>
 
 		<article id="article"> 
+			<div id="date-container"> 
+				<div id="date">
+					<span style="font-weight: bold;"> Published On: </span> <%= date %>
+				</div>
+			</div>
 
 			<div id="thumbnail-container">
 				<img id="thumbnail", src="<%= article[0].thumbnailUrl %>", alt="Thumbnail Image"> </img>
 			</div>
 			<div id="thumbnail-caption-container">
-				<small id="thumbnail-caption"> </small>
+				<div id="thumbnail-caption"> <%= article[0].caption %> </div>
 			</div>
 
 			<%- article[0].body %>

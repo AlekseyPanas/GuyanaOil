@@ -6,3 +6,31 @@
 #thumbnail-container {
     background-color: rgba(0, 0, 0, .2);
 }
+
+#thumbnail-caption-container {
+    border-left: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-right: 2px solid #000000;
+    border-radius: 0px 0px 5px 5px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#thumbnail-caption {
+    text-align: center;
+    font-family: 'MS Georgia';
+    font-size: 85%;
+}
+
+#date-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #000000; 
+    border-bottom: 1px solid #000000;
+    margin-bottom: 5px;
+}
+
+#date {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 70%;
+}
