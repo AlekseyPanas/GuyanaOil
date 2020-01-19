@@ -39,12 +39,12 @@ app.get('/article/:articleUrl', async (req, res) => {
     const date = article[0].date.toString().split(" ").slice(1, 4).join(" ")
 
     res.render('pages/article', {
-        article: article,
+        article: article[0],
         date: date
     });
 });
 
-
+// Editor
 app.all('/pages/articleEditor', (req, res) => {
     let errorMessage = null;
     let content = null;

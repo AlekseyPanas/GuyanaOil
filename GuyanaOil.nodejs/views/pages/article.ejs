@@ -9,7 +9,7 @@
 	<% include ../partials/header %>
 
 	<div id="main-content"> 
-		<h1 id="page-title"> <%= article[0].title %> </h1>
+		<h1 id="page-title"> <%= article.title %> </h1>
 
 		<article id="article"> 
 			<div id="date-container"> 
@@ -19,13 +19,13 @@
 			</div>
 
 			<div id="thumbnail-container">
-				<img id="thumbnail", src="<%= article[0].thumbnailUrl %>", alt="Thumbnail Image"> </img>
+				<img id="thumbnail", src="<%= article.thumbnailUrl %>", alt="Thumbnail Image"> </img>
 			</div>
 			<div id="thumbnail-caption-container">
-				<div id="thumbnail-caption"> <%= article[0].caption %> </div>
+				<div id="thumbnail-caption"> <%= article.caption %> </div>
 			</div>
 
-			<%- article[0].body %>
+			<%- article.body %>
 		</article>
 
 	</div>

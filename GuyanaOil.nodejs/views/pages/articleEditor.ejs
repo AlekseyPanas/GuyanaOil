@@ -4,6 +4,8 @@
 <head>
 	<% include ../partials/head %>
 
+	<link rel="stylesheet" type="text/css" href="..\css\articleEditor.css"> </link>
+
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>tinymce.init({ selector: 'textarea' });</script>
 
@@ -25,7 +27,8 @@
 			<form method="POST" action="/pages/articleEditor">
 				<input type="text" name="title" placeholder="Article Title" value="<%= title %>" />
 				<textarea name="content"><%= content %></textarea>
-				<input type="submit" value="Save" />
+				<input type="file"/> 
+				<input type="submit" value="Save" />		
 			</form>
 		</div>
 	</div>
