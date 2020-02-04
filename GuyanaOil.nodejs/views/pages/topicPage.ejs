@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<% include ../partials/head %>
-		<link rel="stylesheet" type="text/css" href="..\css\homepage.css"> </link>
+		<link rel="stylesheet" type="text/css" href="..\css\category.css"> </link>
 	</head>
 <body>
 	<% include ../partials/header %>
@@ -11,15 +11,12 @@
 		<h1 id="page-title"> HOME </h1>
 
 		<div id="article-container">
-
-			<% indices.forEach(function(x) { %>
+			<% articlePreviews.forEach(function(article) { %>
 				<div class="article">
-					<a class="home-window" href="/categories/<%= image_links[x].split('/')[-1] %>">  
-						<img class="cat-img" src="<%= image_links[x] %>" alt="Image not found"> </img>
-					</a>
+					<a class="home-window" href="/article/<%= article.seoUrl %>" style="background-image: url(<%= article.thumbnailUrl %>);">  </a>
 					<div class="home-title-container">
 						<h1 class="home-window-title"> 
-							<%= names[x] %>
+							<%= article.title %>
 						</h1>
 					</div>
 				</div>

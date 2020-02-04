@@ -1,15 +1,18 @@
 .home-window {
 	display: block;
+	border-radius: 25px;
 	opacity: 0.8;
+	box-shadow: inset 0px 0px 40px #000000;
+	border: 10px solid #000000;
+	transition: box-shadow .5s;
 	background-size: cover;
 }
 
-.cat-img {
-	height: 100%;
-	margin: auto;
+.home-window:hover {
+	box-shadow: inset 0px 0px 40px #FFFFFF;
 }
 
-@media only screen and (min-width: 1015px) {
+@media only screen and (min-width: 1000px) {
   .home-window {
 	height: 300px;
 	width: 400px;
@@ -18,7 +21,7 @@
   }
 }
 
-@media only screen and (max-width: 1014px) {
+@media only screen and (max-width: 999px) {
   .home-window {
 	height: 30vw;
 	width: 40vw;
@@ -32,26 +35,22 @@
 }
 
 .home-title-container {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: -18%;
-	margin-bottom: 5%;
-	padding: 5px;
-	position: relative;
-	background-color: rgba(0, 0, 0, 0.4);
-	color: white;
-	border-radius: 9px;
+	margin: auto;
+	border-left: 5px solid black;
+	border-right: 5px solid black;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 5px
 }
 
 @media only screen and (min-width: 1000px) {
 	.home-title-container {
-		width: 300px;
+		width: 400px;
 	}
 }
 
 @media only screen and (max-width: 999px) {
 	.home-title-container {
-		width: 30vw;
+		width: 40vw;
 	}
 }
 

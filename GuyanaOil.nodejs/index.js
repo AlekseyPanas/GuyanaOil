@@ -16,12 +16,37 @@ app.get('/', renderHomePage);
 app.get('/pages/index', renderHomePage);
 
 async function renderHomePage(req, res) {
-    const articlePreviews = await db.prevs();
+    // Gets the relative image links from the directory
+    var image_links = ["bussiness", "education", "foreigninvest", "geopolitics", "governance", "healthcare", "infrastructure", "oil", "safety", "workforce"];
+    image_links.forEach((element, index) => {image_links[index] =  "../images/home_icons/" + element + ".png"})
+   
+    // Display titles for each category
+    var names = ["Bussiness", "Education", "Foreign Investment", "Geopolitics", "Governance", "Healthcare", "Infrastructure", "Oil", "Safety", "Workforce"];
+
+    // Indices used by html page to access the arrays above
+    var indices = [];
+    var count = 0;
+    for (i = 0; i < names.length; i++) {
+        indices.push(count);
+        count++;
+    };
 
     res.render('pages/index', {
+        image_links: image_links,
+        names: names,
+        indices: indices
+    });
+};
+
+
+// category pages
+app.get('/categories/:category', async (req, res) => {
+    const articlePreviews = await db.prevs();
+
+    res.render('pages/topicPage', {
         articlePreviews: articlePreviews
     });
-}
+});
 
 
 // about page
